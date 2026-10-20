@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | Mae's Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* PROJECTS PAGE */
+        .projects-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 35px 24px 60px;
+        }
+
+        .projects-intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .projects-intro h1 {
+            font-size: 34px;
+            color: #914e70;
+            margin: 0 auto 12px;
+        }
+
+        .projects-intro p {
+            margin: 0 auto;
+        }
+
+        /* THREE PROJECT CARDS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            align-items: start;
+        }
+
+        .project-item {
+            min-width: 0;
+            overflow: hidden;
+            background: #fffafd;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 8px 22px rgba(105, 65, 88, 0.12);
+            transition: transform 0.25s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-4px);
+        }
+
+        /* PROJECT PICTURES */
+        .project-photo {
+            width: 100%;
+            height: 210px;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            background: #f7dce8;
+        }
+
+        /* PRELIM, MIDTERM AND FINAL TITLE BOXES */
+        .project-heading {
+            width: 100%;
+            height: 120px;
+            min-height: 120px;
+            box-sizing: border-box;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0;
+            padding: 15px;
+
+            background: #f7dce8;
+            color: #914e70 !important;
+
+            font-size: 42px;
+            font-weight: bold;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        /* PROJECT INFORMATION */
+        .project-details {
+            padding: 20px;
+        }
+
+        .project-label {
+            display: inline-block;
+            padding: 6px 13px;
+            margin-bottom: 14px;
+            border-radius: 20px;
+            background: #fff0f6;
+            color: #c64f83;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .project-title {
+            padding: 12px;
+            margin: 0 0 14px;
+            border-radius: 10px;
+            background: #ffdeec;
+            color: #654054 !important;
+            font-size: 20px;
+            line-height: 1.4;
+            overflow-wrap: anywhere;
+        }
+
+        .project-description {
+            padding: 12px;
+            margin: 0 0 18px;
+            border-radius: 10px;
+            background: #ffdeec;
+            color: #654054 !important;
+            font-size: 16px;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+
+        /* SHOW DETAILS BUTTON */
+        .details-button {
+            display: inline-block;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 20px;
+            background: #c64f83;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .details-button:hover {
+            background: #a93d6d;
+        }
+
+        .extra-details {
+            display: none;
+            padding: 12px;
+            margin-top: 14px;
+            border-radius: 10px;
+            background: #fff0f6;
+            color: #654054;
+            line-height: 1.7;
+        }
+
+        .extra-details.show {
+            display: block;
+        }
+
+        /* TABLET */
+        @media (max-width: 900px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            .projects-section {
+                padding: 25px 16px 40px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-photo {
+                height: 220px;
+            }
+
+            .project-heading {
+                height: 100px;
+                min-height: 100px;
+                font-size: 36px;
+            }
+        }
+
+        /* DARK MODE */
+        body.dark-mode .project-item {
+            background: #352c3b;
+            border-color: #594153;
+        }
+
+        body.dark-mode .project-heading {
+            background: #493548;
+            color: #ffd9e9 !important;
+        }
+
+        body.dark-mode .project-title,
+        body.dark-mode .project-description {
+            background: #493548;
+            color: #ffe8f1 !important;
+        }
+
+        body.dark-mode .project-label {
+            background: #493548;
+            color: #ffd1e5;
+        }
+
+        body.dark-mode .projects-intro h1,
+        body.dark-mode .projects-intro p {
+            color: #ffe3ef;
+        }
+
+        body.dark-mode .extra-details {
+            background: #493548;
+            color: #ffe8f1;
+        }
+        
+/* COQUETTE PINK DARK MODE BUTTON */
+#themeToggle {
+    background: #d65b91;
+    color: #ffffff;
+    border: 2px solid #f4b8d2;
+    border-radius: 30px;
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(180, 76, 125, 0.20);
+    transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+#themeToggle:hover {
+    background: #b94378;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(180, 76, 125, 0.30);
+}
+
+/* BUTTON IN DARK MODE */
+body.dark-mode #themeToggle {
+    background: #493548;
+    color: #ffd9e9;
+    border: 2px solid #b77b9b;
+}
+
+body.dark-mode #themeToggle:hover {
+    background: #62465a;
+    color: #ffffff;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="logo">Mae ♡</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="skills.html">Skills</a>
+            <a href="project.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <button id="themeToggle" type="button">
+            🌙 Dark Mode
+        </button>
+    </header>
+
+    <!-- PROJECTS CONTENT -->
+    <main class="projects-section">
+
+        <div class="projects-intro">
+            <h1>My Projects ♡</h1>
+            <p>Here I will showcase the activities I completed in ITE 1.</p>
+        </div>
+
+        <div class="projects-grid">
+
+            <!-- PRELIM -->
+            <article class="project-item">
+
+                <img
+                    src="images/project-prelim.jpg"
+                    alt="Prelim project picture"
+                    class="project-photo"
+                >
+
+                <div class="project-details">
+                    <span class="project-label">PRELIM</span>
+
+                    <h3 class="project-title">
+                        My Prelim Activity ♡
+                    </h3>
+
+                    <p class="project-description">
+                        
+                    </p>
+
+                    <button
+                        class="details-button"
+                        type="button"
+                        onclick="toggleDetails('prelimDetails', this)"
+                    >
+                        Show Details
+                    </button>
+
+                    <div class="extra-details" id="prelimDetails">
+                        
+                    </div>
+                </div>
+            </article>
+
+            <!-- MIDTERM -->
+            <article class="project-item">
+
+                <img
+                    src="midtermActivity.png"
+                    alt="Teacher's Month Tribute project"
+                    class="project-photo"
+                >
+
+                <div class="project-details">
+                    <span class="project-label">MIDTERM</span>
+
+                    <h3 class="project-title">
+                        Teacher's Month Tribute 🌸
+                    </h3>
+
+                    <p class="project-description">
+                        This is my Midterm project dedicated to
+                        Sir Rustymae Rafallo. I created a tribute
+                        website to thank him for his patience,
+                        guidance, and dedication as our teacher.
+                        It includes an appreciation message,
+                        a picture, and a song for him.
+                    </p>
+
+                    <button
+                        class="details-button"
+                        type="button"
+                        onclick="toggleDetails('midtermDetails', this)"
+                    >
+                        Show Details
+                    </button>
+
+                    <div class="extra-details" id="midtermDetails">
+                        Through this project, I learned how to design
+                        a webpage, organize content, and express
+                        appreciation through a website.
+                    </div>
+                </div>
+            </article>
+
+            <!-- FINAL -->
+            <article class="project-item">
+
+                <img
+                    src="images/project-final.jpg"
+                    alt="Final project picture"
+                    class="project-photo"
+                >
+
+                <div class="project-details">
+                    <span class="project-label">FINAL</span>
+
+                    <h3 class="project-title">
+                        My Final Activity ♡
+                    </h3>
+
+                    <p class="project-description">
+                        
+                    </p>
+
+                    <button
+                        class="details-button"
+                        type="button"
+                        onclick="toggleDetails('finalDetails', this)"
+                    >
+                        Show Details
+                    </button>
+
+                    <div class="extra-details" id="finalDetails">
+                        
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="text-align: center; padding: 20px;">
+        <p>Made with love by Mae ♡</p>
+    </footer>
+
+    <script>
+        // Show or hide project details
+        function toggleDetails(id, button) {
+            const details = document.getElementById(id);
+
+            details.classList.toggle("show");
+
+            if (details.classList.contains("show")) {
+                button.textContent = "Hide Details";
+            } else {
+                button.textContent = "Show Details";
+            }
+        }
+
+        // Dark mode toggle
+        const themeToggle = document.getElementById("themeToggle");
+
+        if (localStorage.getItem("portfolioTheme") === "dark") {
+            document.body.classList.add("dark-mode");
+            themeToggle.textContent = "☀️ Light Mode";
+        }
+
+        themeToggle.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+
+            const isDark =
+                document.body.classList.contains("dark-mode");
+
+            themeToggle.textContent = isDark
+                ? "☀️ Light Mode"
+                : "🌙 Dark Mode";
+
+            localStorage.setItem(
+                "portfolioTheme",
+                isDark ? "dark" : "light"
+            );
+        });
+    </script>
+
+</body>
+</html>

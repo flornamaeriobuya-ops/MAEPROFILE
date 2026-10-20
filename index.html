@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Mae's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+    <a class="logo" href="index.html">Mae ♡</a>
+
+    <button class="menu-btn" id="menuBtn">☰ Menu</button>
+
+    <nav id="navigation">
+        <a class="active" href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="skills.html">Skills</a>
+        <a href="project.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <button id="themeBtn" class="theme-btn">🌙 Dark Mode</button>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-text">
+            <p class="eyebrow">WELCOME TO MY PORTFOLIO ♡</p>
+
+            <h1>Hi, I'm <span>Florna Mae!</span></h1>
+            <h2>You can call me Mae.</h2>
+
+            <p>
+                I'm 19 years old and a BSIT student at
+                Bestlink College of the Philippines.
+                I enjoy listening to music, taking pictures,
+                and eating my favorite comfort food.
+                I also love spicy foods!
+            </p>
+
+            <a class="button" href="about.html">Get to Know Me</a>
+            <button class="button outline" id="helloBtn">
+                Say Hello
+            </button>
+
+            <p id="helloMessage" class="message"></p>
+
+            <p class="date">
+                Today's date and time: <span id="dateTime"></span>
+            </p>
+        </div>
+
+        <div class="hero-photo">
+            <img
+                src="SLIDEPICS.jpg"
+                alt="Mae's profile picture"
+                onerror="this.onerror=null;this.src='https://placehold.co/450x500/f8dce8/8c4d68?text=Mae%27s+Photo';"
+            >
+            <div class="sticker">Made with love ♡</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <p class="eyebrow">MY FAVORITE THINGS</p>
+            <h2>Things That Make Me Happy</h2>
+        </div>
+
+        <div class="grid three">
+            <article class="card">
+                <div class="emoji">🎵</div>
+                <h3>Listening to Music</h3>
+                <p>I enjoy listening to music when I want to relax.</p>
+            </article>
+
+            <article class="card">
+                <div class="emoji">📸</div>
+                <h3>Taking Pictures</h3>
+                <p>I like capturing moments and keeping memories.</p>
+            </article>
+
+            <article class="card">
+                <div class="emoji">🌶️</div>
+                <h3>Spicy Food</h3>
+                <p>I love eating my comfort food, especially spicy ones!</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="feature">
+        <div>
+            <h2>My Student Journey</h2>
+            <p>
+                I'm still learning and improving my skills.
+                This portfolio shows my interests, skills,
+                and school activities.
+            </p>
+        </div>
+        <a class="button" href="projects.html">View My Projects</a>
+    </section>
+</main>
+
+<footer>
+    <p>© <span class="year"></span> Florna Mae C. Riobuya | ITE 1</p>
+    <a href="#top">Back to Top ↑</a>
+</footer>
+
+<button id="topBtn" class="top-btn">↑</button>
+
+</body>
+</html>
